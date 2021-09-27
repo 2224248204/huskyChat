@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.huskychat.mapper.user.UserMapper">
+
+<!--    登录-->
+    <select id="login" parameterType="string" resultMap="userResultMap">
+        SELECT
+        `id`,
+        `user`.`account`,
+        `password`,
+        `email`,
+        `phone`,
+        `nickName`,
+        `gender`,
+        `birthday`,
+        `sign`,
+        `intro`,
+        `region`,
+        `headImg`,
+        `status`,
+        `relationStatus`,
+        `security`,
+        `updateTime`
+        FROM
+        `user` LEFT JOIN `userSecurity` ON(`user`.`account` = `userSecurity`.`account`)
+        <where>
+            and `user`.account = #{account}
+        </where>
+    </select>
+    
+    <resultMap id="userResultMap" type="user">
+        <id column="id" property="id"/>
+        <association property="userSecurity" javaType="userSecurity"/>
+    </resultMap>
+
+    <select id="getUserByAccount" resultType="user">
+        SELECT
+            `id`,
+            `account`,
+            `email`,
+            `phone`,
+            `nickName`,
+            `gender`,
+            `birthday`,
+            `sign`,
+            `intro`,
+            `region`,
+            `headImg`
+        FROM
+            `user` WHERE account = #{account}
+    </select>
+
+<!--    添加用户-->
+    <insert id="addUser" parameterType="user">
+        INSERT INTO `user`(`account`, `password`, `email`, `nickName`, `status`, `relationStatus`, `headImg`)
+        VALUES
+        (#{account}, #{password}, #{email}, #{nickName}, 0, 0, #{headImg})
+    </insert>
+
+    <update id="updateUser" parameterType="user">
+        UPDATE `user`
+        <set>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="nickName != null">
+                nickName = #{nickName},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday},
+            </if>
+            <if test="sign != null">
+                sign = #{sign},
+            </if>
+            <if test="intro != null">
+                intro = #{intro},
+            </if>
+            <if test="region != null">
+                region = #{region},
+            </if>
+            <if test="headImg != null">
+                headImg = #{headImg},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="relationStatus != null">
+                relationStatus = #{relationStatus}
+            </if>
+        </set>
+        WHERE account = #{account}
+    </update>
+</mapper>

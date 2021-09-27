@@ -1,0 +1,258 @@
+/* 容器 */
+.container{
+	width: 100%;
+	height: 100%;
+}
+.layui-row{
+	width: inherit;
+	height: inherit;
+}
+.left{
+	width: 230px;
+	height: 100%;
+}
+.right{
+	width: calc(100% - 230px);
+	height: 100%;
+}
+
+/**
+ * 左侧内容
+ */
+.l-head{
+	height: 100px;
+}
+.l-head-logo{
+	width: 70px;
+	height: 100px;
+	padding: 28px 15px;
+	/* background-color: red; */
+}
+.l-head-title{
+	width: calc(100% - 70px);
+	line-height: 100px;
+	font-size: 20px;
+	font-family: "幼圆";
+	font-weight: bold;
+}
+.entitle{
+	color: #FF8866;
+}
+
+
+/* 菜单 */
+.menu{
+	/* height: calc(100% - 100px); */
+}
+/* 菜单项 */
+.menu-item{
+	line-height: 45px;
+	padding-left: 5px;
+	font-size: 16px;
+	width: calc(100% - 10px);
+	margin-left: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	/* background-image: linear-gradient(to right, transparent, transparent); */
+	/* background-size: 0 100%; */
+	transition:all 0.2s;
+	margin-top: 15px;
+}
+.menu-item-icon{
+	padding: 0 5px;
+}
+.menu-item:hover{
+	padding-left: 20px;
+}
+.menu-item-title{
+	cursor: pointer;
+}
+
+
+
+
+/**
+ * 右侧内容
+ */
+header{
+	width: 100%;
+	height: 50px;
+}
+
+.header-nav{
+	height: 50px;
+}
+.header-nav ul li{
+	height: 50px;
+	float: left;
+	margin-right: 0;
+	position: relative;
+	font-size: 12px;
+	padding: 0 3px;
+}
+.header-nav ul li:nth-of-type(1){
+	margin-left: 5px;
+}
+.header-nav-item-btn{
+	height: 30px;
+	line-height: 30px;
+	padding: 0 15px
+	cursor: pointer;
+	border-radius: 3px;
+	margin-top: 10px;
+	cursor: pointer;
+	padding: 0 10px;
+	transition: opacity 0.3s;
+}
+@keyframes headerNavItemAnimate{
+	from{
+		margin-right: 0;
+	}
+	to{
+		margin-right: 10px;
+	}
+}
+.header-nav-item-btn-active::after{
+	content: "";
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	margin-left: 5px;
+	border-radius: 50%;
+	background-color: white;
+	border: 1px solid rgba(200 ,200 ,200 ,0.8);
+}
+
+.header-admin{
+	height: 50px;
+}
+.header-admin-info{
+	float: left;
+	padding: 0 30px 0 15px;
+	position: relative;
+}
+.header-admin-info::before{
+	content: "";
+	display: block;
+	width: 1px;
+	height: 20px;
+	background-color: #EEEEEE;
+	position: absolute;
+	top: 15px;
+	left: 0;
+}
+.header-admin-img{
+	width: 50px;
+	height: 50px;
+	padding: 8px;
+	display: inline-block;
+}
+.header-admin-name{
+	line-height: 50px;
+	font-size: 13px;
+	display: inline-block;
+	cursor: pointer;
+}
+.header-admin-img img{
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+
+
+
+
+
+.content{
+	width: 100%;
+	height: calc(100% - 50px);
+	/* calc(100% - 100px) */
+	/* overflow-y: scroll; */
+	/* padding: 10px; */
+	overflow: hidden;
+}
+
+/* 设置框架 */
+.wrap{
+	width: 100%;
+	height: 100%;
+}
+.wrap-head-icon{
+	font-weight: bold;
+	padding: 0 5px 0 0;
+}
+.layui-card-header{
+	font-size: 16px;
+}
+.layui-form-label{
+	width: 100px;
+}
+.wrap-left{
+	width: 0;
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	transition: width 0.5s;
+}
+
+.wrap-left-control{
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+	z-index: 99999;
+	transition: right 0.6s, opacity 0.5s;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+.wrap-left-control .layui-icon{
+	color: #FFFFFF;
+	transition: transform 0.4s;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.wrap-left nav{
+	opacity: 0;
+	overflow: hidden;
+	width: 100%;
+	transition: opacity 0.3s;
+}
+.wrap-left nav a{
+	width: inherit;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	display: inline-block;
+	transition: color 0.3s, background-color 0.1s;
+}
+
+
+/* 主要内容 */
+.app{
+	width: 100%;
+	height: 100%;
+	/* background-color: #000000; */
+	transition: width 0.5s;
+	padding: 10px;
+	overflow-y: scroll;
+	/* transition: padding-top 0.1s; */
+}
+.app-wrap{
+	width: calc(100% - 200px);
+}
+.tableSearch{
+	padding-bottom: 10px;
+}
+.inputTableTool{
+	width: auto;
+	display:inline-block;
+}

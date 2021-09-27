@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.huskychat.mapper.usersecurity.UserSecurityMapper">
+
+    <select id="getUserSecurityByAccount" resultType="userSecurity" >
+        SELECT
+            `account`,
+            `security`
+        FROM
+            `userSecurity`
+        WHERE `account` = #{account}
+    </select>
+
+    <insert id="addSecurity" parameterType="userSecurity">
+        INSERT INTO `userSecurity`(`account`, `security`, `updateTime`)
+        VALUES
+        (#{account}, #{security}, NOW())
+    </insert>
+    
+   <update id="updateSecurity" parameterType="userSecurity">
+        UPDATE `userSecurity` SET `security` = #{security} WHERE `account` = #{account}
+    </update>
+</mapper>

@@ -1,0 +1,90 @@
+/**
+ * public
+ */
+/* 滚动app条宽度 */
+.app::-webkit-scrollbar{
+    width: 6px;
+}
+/* 滚动条主样式 */
+.app::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+	background-color: #4AB2FF;
+}
+/* 滚动条内样式 */
+.app::-webkit-scrollbar-track,{
+    background-color: transparent;
+}
+
+input[disabled='disabled']{
+	background-color: #EEEEEE;
+}
+
+
+
+.left{
+	background-color: #FFFFFF;
+	border-right: 1px solid #EFEFEF;
+}
+.right{
+	background-color: #F6F8FF;
+}
+.l-head{
+	background-color: #FFFFFF;
+}
+.menu{
+	/* background-color: #FFFFFF; */
+}
+.menu-item-style-default{
+	background-image: linear-gradient(to right, rgba(70,161,255, 0.3), rgba(200,200,200,0.1) 60%);
+}
+.menu-item:hover{
+	background-image: linear-gradient(to right, #efefef, rgba(200,200,200,0.1) 60%)!important;
+}
+
+
+/* 右侧 */
+header{
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #EFEFEF;
+}
+.header-nav-item-btn{
+	color: #FFFFFF;
+	background-color: #4AB2FF;
+}
+.header-nav-item-btn:hover{
+	opacity: 0.8;
+}
+.header-admin-name{
+	color: #989898;
+}
+.header-admin-img img{
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+
+
+.wrap{
+	/* background-color: #FFFFFF; */
+}
+.wrap-left{
+	background-color: #FFFFFF;
+	/* border-right: 1px solid #EFEFEF; */
+}
+.wrap-left a{
+	color: #ccc;
+}
+.wrap-left-item-focus{
+	color: #4AB2FF!important;
+	background-color: #FAFAFA;
+}
+.wrap-left nav a:hover{
+	color: #4AB2FF!important;
+	background-color: #FAFAFA;
+}
+.wrap-left-control{
+	background-color: #4AB2FF;
+}
+
+.layui-table-view{
+	background-color: white;
+}

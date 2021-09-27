@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.huskychat.mapper.usermess.UserMessMapper">
+    <select id="getUserMess" resultType="userMess" parameterType="userMess">
+        SELECT
+            `id`,
+            `accountA`,
+            `accountB`,
+            `content`,
+            `time`,
+            `messType`,
+            `status`,
+            (SELECT nickName FROM `user` WHERE `userMess`.`accountA` = `user`.`account`) AS `nickNameA`,
+            (SELECT nickName FROM `user` WHERE `userMess`.`accountB` = `user`.`account`) AS `nickNameB`,
+            (SELECT headImg FROM `user` WHERE `userMess`.`accountA` = `user`.`account`) AS `headImgA`,
+            (SELECT headImg FROM `user` WHERE `userMess`.`accountB` = `user`.`account`) AS `headImgB`
+        FROM `userMess`
+        <where>
+            (`accountA` = #{accountA} AND `accountB` = #{accountB})
+            OR
+            (`accountA` = #{accountB} AND `accountB` = #{accountA})
+            <if test="status != null">
+                `status` = #{status}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addUserMess" parameterType="userMess">
+        INSERT INTO `userMess`(`accountA`, `accountB`, `content`, `time`, `messType`, `status`)
+        VALUES
+        (#{accountA}, #{accountB}, #{content}, NOW(), #{messType}, 0)
+    </insert>
+
+    <select id="getMessEnd" parameterType="userMess" resultType="userMess">
+        SELECT
+            `accountA`,
+            `accountB`,
+            `content`,
+            `time`,
+            `messType`,
+            `status`,
+            (SELECT nickName FROM `user` WHERE `userMess`.`accountA` = `user`.`account`) AS `nickNameA`,
+            (SELECT nickName FROM `user` WHERE `userMess`.`accountB` = `user`.`account`) AS `nickNameB`,
+            (SELECT headImg FROM `user` WHERE `userMess`.`accountA` = `user`.`account`) AS `headImgA`,
+            (SELECT headImg FROM `user` WHERE `userMess`.`accountB` = `user`.`account`) AS `headImgB`
+        FROM
+            `userMess`
+        WHERE
+            (`accountA` = #{accountA} AND `accountB` = #{accountB})
+           OR
+            (`accountA` = #{accountB} AND `accountB` = #{accountA})
+        ORDER BY `time` DESC
+            LIMIT 0,1
+    </select>
+</mapper>

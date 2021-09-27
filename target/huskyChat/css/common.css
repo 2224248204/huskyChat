@@ -1,0 +1,112 @@
+*{
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+}
+body,html{
+	width: 100%;
+	height: 100%;
+	transition: background-color 0.5s;
+}
+input{border: none;}
+
+/* 清除浮动流 */
+.clear::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* 左浮动 */
+.fl{float: left;}
+/* 右浮动 */
+.fr{float: right;}
+
+
+/* 自定义弹窗 */
+.huskychat-alert-wrap{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.huskychat-alert-box{
+	width: 450px;
+	height: 300px;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	position: absolute;
+	top: 250px;
+	left: 50%;
+	margin-left: -225px;
+	overflow: hidden;
+}
+.huskychat-alert-title{
+	width: 100%;
+	height: 50px;
+	text-align: left;
+	line-height: 50px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #454545;
+	text-align: center;
+	background-color: #D3DEB3;
+}
+.huskychat-alert-content{
+	text-align: center;
+}
+
+
+
+/* 右上角警告消息列表 */
+.husky-topic-list{
+	width: auto;
+	height: auto;
+	position: fixed;
+	top: 0;
+	right: 10px;
+	/* background-color: red; */
+}
+.husky-topic-item{
+	width: 330px;
+	height: 80px;
+	font-size: 15px;
+	margin-top: 20px;
+	border-radius: 8px;
+	background-color: #FFFFFF;
+	border: 1px solid #ebeef5;
+	padding: 5px 10px;
+	box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+	cursor: default;
+	position: relative;
+	transition: all 0.3s;
+	animation: huskyTopicAnimation 0.3s forwards;
+}
+.husky-topic-item-title{
+	font-size: 18px;
+	line-height: 35px;
+}
+.husky-topic-item-content{
+	font-size: 14px;
+	color: #606266;
+}
+.husky-topic-item-icon{
+	width: 25px;
+	height: 25px;
+	margin: 0 13px;
+	margin-top: 10px;
+}
+@keyframes huskyTopicAnimation{
+	from{
+		right: -335px;
+	}
+	to{
+		right: 0;
+	}
+}

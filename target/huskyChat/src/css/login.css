@@ -1,0 +1,104 @@
+#wrap{
+	width: 100%;
+	height: 100%;
+	background-color: #23364C;
+}
+
+.box{
+	width: 500px;
+	height: 320px;
+	background-color: rgb(45,70,90);
+	border-radius: 15px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -250px;
+}
+.box form{
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+}
+.login-t{
+	height: 75px;
+	line-height: 75px;
+	text-align: center;
+	font-size: 24px;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 4px;
+}
+.input,
+.input-code{
+	width: 350px;
+	height: 50px;
+	margin: 0 auto;
+	position: relative;
+	margin-bottom: 15px;
+}
+.input fieldset{
+	width: 100%;
+	height: 40px;
+	border-color: #6C7E9E;
+	border-style: solid;
+	border-radius: 30px;
+	position: relative;
+	padding-left: 30px;
+	top: 5px;
+	
+	transition: all 0.3s;
+}
+.input legend{
+	cursor: default;
+	color: #ccc;
+	font-size: 12px;
+	padding: 0 10px;
+	position: absolute;
+	
+	top: 8px;
+	transition: all 0.3s; 
+}
+.layui-icon{
+	position: absolute;
+	left: 10px;
+	top: 8px;
+	font-size: 18px;
+}
+.input input[type='text'],
+.input input[type='password']{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0px 10px 0 43px;
+	color: aqua;
+	background-color: transparent;
+}
+.layui-btn{
+	display: block;
+	padding: 0 30px;
+	margin: 0 auto;
+}
+	
+.input-code{
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.input-code button{
+	display: inherit;
+	margin: 0 auto;
+	height: inherit;
+	padding: 5px 15px;
+	cursor: pointer;
+	border: none;
+	background-color: rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,254,254,0.1);
+	color: rgba(0,254,254,0.6);
+	border-radius: 30px;
+	font-size: 14px;
+}
+.input-code button:hover{
+	color: #02F6F5;
+	border: 1px solid #02F6F5;
+}
